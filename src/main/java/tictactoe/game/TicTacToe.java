@@ -1,7 +1,7 @@
 package src.main.java.tictactoe.game;
 
 public class TicTacToe {
-    private char[][] board;
+    private static char[][] board;
 
     public TicTacToe() {
         board = new char[3][3];
@@ -28,7 +28,7 @@ public class TicTacToe {
         }
     }
 
-    public void drawMark(int row, int col, char symbol) {
+    public static void drawMark(int row, int col, char symbol) {
         if (row >= 0 && row <= 2 && col >= 0 && col <= 2) {
             board[row][col] = symbol;
         } else {

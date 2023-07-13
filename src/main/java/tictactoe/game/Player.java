@@ -1,18 +1,22 @@
 package src.main.java.tictactoe.game;
 
-public class Player {
-    private String name;
-    private char mark;
+public abstract class Player {
+    protected String name;
+    protected char symbol;
 
-    public Player(String name, char mark) {
+    public Player(String name, char symbol) {
         this.name = name;
-        this.mark = mark;
+        this.symbol = symbol;
     }
 
-    public void drawMark(){}
+    public abstract void drawMark();
 
-    public void isValidDraw(){
-        
-
+    public boolean isValidDraw(char[][] gameBaod, int row, int col) {
+        if (row >= 0 && row <= 2 && col >= 0 && col <= col) {
+            if (gameBaod[row][col] == ' ') {
+                return true;
+            }
+        }
+        return false;
     }
 }
