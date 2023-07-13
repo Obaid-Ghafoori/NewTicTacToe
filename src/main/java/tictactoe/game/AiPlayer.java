@@ -1,6 +1,7 @@
 package src.main.java.tictactoe.game;
 
 import java.util.Random;
+import java.util.Scanner;
 
 public class AiPlayer extends Player {
     public AiPlayer(String name, char symbol) {
@@ -8,18 +9,16 @@ public class AiPlayer extends Player {
     }
 
     @Override
-    public void drawMark() {
-        Random random;
+    public void makeSymbol() {
+        Scanner scanner = new Scanner(System.in);
         int row;
         int col;
-        char[][] gameBoard;
 
         do {
-            random = new Random();
-            gameBoard = new char[3][3];
+            Random random = new Random();
             row = random.nextInt(3);
             col = random.nextInt(3);
-        } while (!isValidDraw(gameBoard, row, col));
+        } while (!isValidDraw(row, col));
         TicTacToe.drawMark(row, col, symbol);
     }
 }

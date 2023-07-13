@@ -9,14 +9,19 @@ public abstract class Player {
         this.symbol = symbol;
     }
 
-    public abstract void drawMark();
+    public abstract void makeSymbol();
 
-    public boolean isValidDraw(char[][] gameBaod, int row, int col) {
-        if (row >= 0 && row <= 2 && col >= 0 && col <= col) {
-            if (gameBaod[row][col] == ' ') {
+    public boolean isValidDraw( int row, int col) {
+        if (row >= 0 && row <= 2 && col >= 0 && col <= 2) {
+            if (TicTacToe.board[row][col] == ' ') {
                 return true;
             }
+            System.out.println("this position is already taken, please try other spot!");
         }
         return false;
+    }
+
+    public String getName() {
+        return this.name;
     }
 }
