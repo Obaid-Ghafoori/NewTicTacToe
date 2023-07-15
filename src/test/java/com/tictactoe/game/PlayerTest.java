@@ -10,18 +10,15 @@ import static org.mockito.Mockito.when;
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 public class PlayerTest {
-
-    private TicTacToe ticTacToe;
-    Player player = mock(Player.class);
+    private final Player player = mock(Player.class);
 
     @BeforeEach
     public void setup() {
-        ticTacToe = new TicTacToe();
+        new TicTacToe();
     }
 
     @Test
     void isValidDrawReturnTrueTest() {
-        Player player = mock(Player.class);
         int row = 0, col = 0;
         // Set up the board with an empty position
         TicTacToe.board[0][0] = ' ';
@@ -44,9 +41,10 @@ public class PlayerTest {
         when(player.isValidDraw(row, col)).thenCallRealMethod();
         assertThat(player.isValidDraw(row, col)).isFalse();
     }
+
     @Test
     void getNameReturnString() {
-        String name ="Bob";
+        String name = "Bob";
         when(player.getName()).thenReturn(name);
         assertThat(player.getName()).isEqualTo(name);
     }
