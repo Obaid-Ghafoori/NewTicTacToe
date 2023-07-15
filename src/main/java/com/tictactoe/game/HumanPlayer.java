@@ -1,4 +1,4 @@
-package src.main.java.tictactoe.game;
+package com.tictactoe.game;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;

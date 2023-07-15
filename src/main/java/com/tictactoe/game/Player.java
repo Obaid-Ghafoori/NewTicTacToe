@@ -1,4 +1,4 @@
-package src.main.java.tictactoe.game;
+package com.tictactoe.game;
 
 public abstract class Player {
     protected String name;
@@ -11,7 +11,7 @@ public abstract class Player {
 
     public abstract void makeSymbol();
 
-    public boolean isValidDraw( int row, int col) {
+    public boolean isValidDraw(int row, int col) {
         if (row >= 0 && row <= 2 && col >= 0 && col <= 2) {
             if (TicTacToe.board[row][col] == ' ') {
                 return true;
