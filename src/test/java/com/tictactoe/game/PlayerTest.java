@@ -5,7 +5,6 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
-import static org.junit.jupiter.api.Assertions.fail;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
@@ -13,6 +12,7 @@ import static org.mockito.Mockito.when;
 public class PlayerTest {
 
     private TicTacToe ticTacToe;
+    Player player = mock(Player.class);
 
     @BeforeEach
     public void setup() {
@@ -20,16 +20,9 @@ public class PlayerTest {
     }
 
     @Test
-    void makeSymbol() {
-        fail("tesfail");
-    }
-
-    @Test
     void isValidDrawReturnTrueTest() {
         Player player = mock(Player.class);
-        int row = 0;
-        int col = 0;
-
+        int row = 0, col = 0;
         // Set up the board with an empty position
         TicTacToe.board[0][0] = ' ';
         when(player.isValidDraw(row, col)).thenCallRealMethod();
@@ -37,6 +30,24 @@ public class PlayerTest {
     }
 
     @Test
-    void getName() {
+    void isValidDrawReturnFalseWhenPositionAlreadyTakenTest() {
+        int row = 0, col = 0;
+        TicTacToe.board[0][0] = 'X';
+        when(player.isValidDraw(row, col)).thenCallRealMethod();
+        assertThat(player.isValidDraw(row, col)).isFalse();
+    }
+
+    @Test
+    void isValidDrawReturnFalseWhenPositionIsOutOfRangeTest() {
+        int row = 3, col = 0;
+        TicTacToe.board[0][0] = 'X';
+        when(player.isValidDraw(row, col)).thenCallRealMethod();
+        assertThat(player.isValidDraw(row, col)).isFalse();
+    }
+    @Test
+    void getNameReturnString() {
+        String name ="Bob";
+        when(player.getName()).thenReturn(name);
+        assertThat(player.getName()).isEqualTo(name);
     }
 }
