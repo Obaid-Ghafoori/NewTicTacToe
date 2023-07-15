@@ -1,9 +1,10 @@
-package src.main.java.tictactoe;
+package com.tictactoe;
 
-import src.main.java.tictactoe.game.AiPlayer;
-import src.main.java.tictactoe.game.HumanPlayer;
-import src.main.java.tictactoe.game.Player;
-import src.main.java.tictactoe.game.TicTacToe;
+import com.tictactoe.game.AiPlayer;
+import com.tictactoe.game.HumanPlayer;
+import com.tictactoe.game.Player;
+import com.tictactoe.game.TicTacToe;
+
 
 public class LunchGame {
     public static void main(String[] args) {
@@ -33,7 +34,7 @@ public class LunchGame {
                 ticTacToe.printEndOfGamePattern();
                 break;
             } else if (ticTacToe.checkWinnerCol() || ticTacToe.checkWinnerRow() || ticTacToe.checkWinnerDiagonal()) {
-                System.out.println(currentPlayer.getName() + " won the game!");
+                System.out.println( "\t\t\t\t " + currentPlayer.getName() + " won the game!");
                 ticTacToe.printEndOfGamePattern();
                 break;
             } else {
@@ -41,7 +42,6 @@ public class LunchGame {
             }
 
         }
-
 
 
     }

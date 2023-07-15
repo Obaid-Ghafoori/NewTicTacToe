@@ -1,4 +1,7 @@
-package src.main.java.tictactoe.game;
+package com.tictactoe.game;
+
+import java.util.Arrays;
+import java.util.stream.IntStream;
 
 public class TicTacToe {
     static char[][] board;
@@ -63,22 +66,18 @@ public class TicTacToe {
         return false;
     }
     public boolean isGameDraw() {
-        for (int row = 0; row < 3; row++) {
-            for (int col = 0; col < 3; col++) {
-                if (board[row][col] == ' ') {
-                    // There is an empty position, game is not a draw
-                    return false;
-                }
-            }
-        }
-        // All positions are filled, game is a draw
-        return true;
+        return Arrays.stream(board)
+                .flatMapToInt(row -> IntStream.range(0, row.length).map(index -> row[index]))
+                .noneMatch(position -> position == ' ');
     }
 
     public void printEndOfGamePattern() {
-        System.out.println(space +"***************************");
-        System.out.println(space +"*       GAME OVER!        *");
-        System.out.println(space +"***************************");
+        System.out.println("******************************************************");
+        System.out.println("|                    GAME OVER!                      |");
+        System.out.println("******************************************************");
     }
 
+    public String getSpace() {
+        return space;
+    }
 }
