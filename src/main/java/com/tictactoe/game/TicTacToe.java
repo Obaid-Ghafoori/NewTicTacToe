@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.stream.IntStream;
 
 public class TicTacToe {
-    static char[][] board;
+     public static char[][] board =new char[3][3];;
     String space;
 
     public TicTacToe() {
@@ -80,4 +80,5 @@ public class TicTacToe {
     public String getSpace() {
         return space;
     }
+
 }
