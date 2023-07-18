@@ -8,7 +8,7 @@ import com.tictactoe.game.TicTacToe;
 
 public class LunchGame {
     public static void main(String[] args) {
-        System.out.println("####################### Game started ...! ###################");
+        System.out.println("------------------ Game started ...! ------------------");
 
         TicTacToe ticTacToe = new TicTacToe();
         ticTacToe.generateBoard();
@@ -34,7 +34,7 @@ public class LunchGame {
                 ticTacToe.printEndOfGamePattern();
                 break;
             } else if (ticTacToe.checkWinnerCol() || ticTacToe.checkWinnerRow() || ticTacToe.checkWinnerDiagonal()) {
-                System.out.println( "\t\t\t\t " + currentPlayer.getName() + " won the game!");
+                System.out.println( "-------------| " + currentPlayer.getName() + " won the game! |-----------");
                 ticTacToe.printEndOfGamePattern();
                 break;
             } else {
