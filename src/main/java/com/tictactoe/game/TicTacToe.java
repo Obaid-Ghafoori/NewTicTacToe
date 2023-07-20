@@ -4,11 +4,10 @@ import java.util.Arrays;
 import java.util.stream.IntStream;
 
 public class TicTacToe {
-    static char[][] board;
+     public static char[][] board =new char[3][3];;
     String space;
 
     public TicTacToe() {
-        board = new char[3][3];
         space = "\t \t \t \t \t \t";
         generateBoard();
     }
@@ -67,8 +66,10 @@ public class TicTacToe {
     }
     public boolean isGameDraw() {
         return Arrays.stream(board)
-                .flatMapToInt(row -> IntStream.range(0, row.length).map(index -> row[index]))
-                .noneMatch(position -> position == ' ');
+                .flatMapToInt(row -> IntStream
+                        .range(0, row.length)
+                        .map(index -> row[index]))
+                        .noneMatch(position -> position == ' ');
     }
 
     public void printEndOfGamePattern() {
@@ -80,4 +81,5 @@ public class TicTacToe {
     public String getSpace() {
         return space;
     }
+
 }
