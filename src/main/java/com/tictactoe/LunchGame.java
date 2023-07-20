@@ -24,17 +24,17 @@ public class LunchGame {
         currentPlayer = humanPlayer;
 
         while (true) {
-            System.out.println(currentPlayer.getName().toUpperCase() + " turn!");
+            System.out.println("--------------->> "+currentPlayer.getName().toUpperCase() + " turn! <<---------------");
             currentPlayer.makeSymbol();
             ticTacToe.displayBoard();
 
 
             if (ticTacToe.isGameDraw()) {
-                System.out.println("The game is a tie");
+                System.out.println("-------------| The game is a tie |-------------");
                 ticTacToe.printEndOfGamePattern();
                 break;
             } else if (ticTacToe.checkWinnerCol() || ticTacToe.checkWinnerRow() || ticTacToe.checkWinnerDiagonal()) {
-                System.out.println( "-------------| " + currentPlayer.getName() + " won the game! |-----------");
+                System.out.println( "-------------| " + currentPlayer.getName() + " won the game! |------------");
                 ticTacToe.printEndOfGamePattern();
                 break;
             } else {
