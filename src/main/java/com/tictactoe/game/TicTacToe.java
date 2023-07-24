@@ -4,7 +4,8 @@ import java.util.Arrays;
 import java.util.stream.IntStream;
 
 public class TicTacToe {
-     public static char[][] board =new char[3][3];;
+    public static char[][] board = new char[3][3];
+    ;
     String space;
 
     public TicTacToe() {
@@ -13,9 +14,9 @@ public class TicTacToe {
     }
 
     public void generateBoard() {
-        for (int row = 0; row < board.length; row++) {
-            for (int col = 0; col < board[row].length; col++) {
-                board[row][col] = ' ';
+        for (char[] row : board) {
+            for (int col = 0; col < row.length; col++) {
+                row[col] = ' ';
             }
         }
     }
@@ -64,12 +65,13 @@ public class TicTacToe {
         }
         return false;
     }
+
     public boolean isGameDraw() {
         return Arrays.stream(board)
                 .flatMapToInt(row -> IntStream
                         .range(0, row.length)
                         .map(index -> row[index]))
-                        .noneMatch(position -> position == ' ');
+                .noneMatch(position -> position == ' ');
     }
 
     public void printEndOfGamePattern() {
